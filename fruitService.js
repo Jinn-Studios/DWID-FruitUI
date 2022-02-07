@@ -12,6 +12,16 @@ var fruitService = (function($) {
         ]);
     };
     
+    var sortData = function() {
+        console.log('FillMe');
+    };
+    
+    var formatTR = function(trHTML, obj) {
+        return trHTML.replace('{key}', obj.key).replace('{value}', obj.value); 
+    };
+    
+    var getFruits = function() { return getObj('fruits'); };
+    
     var init = function() {
         
     };
@@ -20,7 +30,10 @@ var fruitService = (function($) {
         initialize: init,
         setObj: setObj,
         getObj: getObj,
-        callFruitAPI: callFruitAPI
+        callFruitAPI: callFruitAPI,
+        getFruits: getFruits,
+        formatTR: formatTR,
+        sortData: sortData
     };
     
 })(jQuery);

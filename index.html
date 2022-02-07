@@ -2,6 +2,7 @@
 <head>
 <style>
 td, th { border: 1px solid black; padding: 10px; }
+#sortByName, #sortByValue { cursor:pointer; color:blue; user-select:none; }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="fruitService.js"></script>
@@ -13,7 +14,8 @@ td, th { border: 1px solid black; padding: 10px; }
 <body>
 
 <table id="fruits">
-    <tr><th>Name</th><th>Calories</th></tr>
+    <tr><th>Name <span id="sortByName">sort</span></th><th>Calories <span id="sortByValue">sort</span></th></tr>
+    <!-- This TR is used as the template for this table, don't change recklessly -->
     <tr><td>{key}</td><td>{value}</td></tr>
 </table>
 

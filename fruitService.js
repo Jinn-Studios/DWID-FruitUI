@@ -12,8 +12,24 @@ var fruitService = (function($) {
         ]);
     };
     
-    var sortData = function() {
-        console.log('FillMe');
+    var sortData = function(getField) {
+        var rawData = getFruits();
+        var sorted = getObj('sorted');
+        sorted = (sorted === 1) ? -1 : sorted + 1;
+        setObj('sorted', sorted);
+        
+        if (sorted === 0) return rawData;
+        
+        var sortedData = [];
+        $.each(rawData, function(i, x) { sortedData.push(x); });
+        
+        sortedData.sort(function(a, b){
+            var sortVal = 1;
+            if (getField(a) < getField(b)) sortVal = -1;
+            return sortVal * sorted;
+        });
+        
+        return sortedData;
     };
     
     var formatTR = function(trHTML, obj) {
@@ -22,12 +38,9 @@ var fruitService = (function($) {
     
     var getFruits = function() { return getObj('fruits'); };
     
-    var init = function() {
-        
-    };
+    setObj('sorted', 0);
     
-    return { 
-        initialize: init,
+    return {
         setObj: setObj,
         getObj: getObj,
         callFruitAPI: callFruitAPI,

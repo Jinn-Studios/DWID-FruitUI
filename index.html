@@ -3,14 +3,18 @@
 <style>
 td, th { border: 1px solid black; padding: 10px; }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="fruitService.js"></script>
+<script src="fruitController.js"></script>
+<script>
+    $(document).ready(function() { fruitController.initialize(); });
+</script>
 </head>
 <body>
 
-<table>
+<table id="fruits">
     <tr><th>Name</th><th>Calories</th></tr>
-    <tr><td>Orange</td><td>15</td></tr>
-    <tr><td>Apple</td><td>10</td></tr>
-    <tr><td>Kiwi</td><td>5</td></tr>
+    <tr><td>{key}</td><td>{value}</td></tr>
 </table>
 
 </body>
